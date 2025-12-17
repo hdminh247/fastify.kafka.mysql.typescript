@@ -21,7 +21,7 @@ const auth: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
        const userId = Number((request.user as any).id)
 
        const orderId = uuidv4();
-       const order = await fastify.db.insert(orders).values({
+       await fastify.db.insert(orders).values({
         orderId,
         userId,
         productId,
